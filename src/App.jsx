@@ -8,7 +8,6 @@ function App() {
   const [todos, setTodos] = useState([]);
   const updateTodo = ({id, todo}) => {
     setTodos(todos.map((prevTodo) => prevTodo.id === id ? todo : prevTodo))
-      console.log(todos);
   }
 
   const addTodo = (todo) => {
@@ -24,10 +23,8 @@ function App() {
 
 
   const toggleComplete = (id) =>{
-
+    setTodos(todos.map((todo) => todo.id === id ? {...todo, isCompleted : !todo.isCompleted}: todo))
   }
-
-  console.log(Date().now)
   
   return (
     <TodoContextProvider value={{ todos, updateTodo, addTodo, deleteTodo, toggleComplete }}>
