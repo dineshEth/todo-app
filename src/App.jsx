@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { TodoContextProvider, useTodo } from "./context/TodoContext"
 import AddTodo from "./components/AddTodo";
 import TodoCard from "./components/TodoCard";
@@ -11,6 +11,10 @@ function App() {
   }
 
   const addTodo = (todo) => {
+    if(todos.length > 20) {
+      alert ("Delete some");
+      return;
+    }
     setTodos([{
       id : Date.now(),
       ...todo
@@ -25,6 +29,19 @@ function App() {
   const toggleComplete = (id) =>{
     setTodos(todos.map((todo) => todo.id === id ? {...todo, isCompleted : !todo.isCompleted}: todo))
   }
+  /** LOCAL STORAGE  */ 
+  useEffect(() => {
+    const todos = JSON.parse(localStorage.getItem("todos"))
+
+    if (todos && todos.length > 0) {
+      setTodos(todos)
+    }
+  }, [])
+
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos))
+  }, [todos])
+  
   
   return (
     <TodoContextProvider value={{ todos, updateTodo, addTodo, deleteTodo, toggleComplete }}>
