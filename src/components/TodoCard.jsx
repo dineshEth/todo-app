@@ -10,10 +10,10 @@ const TodoCard = ({todo}) => {
     const handleEditTodo = (e) => {
       e.preventDefault();
       if(isCompleted) return;
-      if(editable) {
+      if(!editable) {
         updateTodo(id, { todo_msg : todo});
-        setEditable(!editable)
       }
+      setEditable(!editable)
     }
 
     const handleToggleCompleted = () => {
