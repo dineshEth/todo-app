@@ -6,7 +6,7 @@ const Footer = () => {
     <div className='text-white relative z-10 p-4 bottom-0 left-0 right-0 w-full bg-[#112A46] flex flex-col justify-center items-center'>
         <p className='text-[24px] my-4'>Follow us</p> 
         <div className='flex flex-row flex-wrap w-full gap-8 justify-center items-center'>
-            <a href="https://www.instagram.com/cs_dinez" className='text-white w-12 '>
+            <a href="https://www.instagram.com/cs_dinezh" className='text-white w-12 '>
                 <img src={instagram} alt="social" className='w-full object-contain' />
             </a>
             <a href="https://www.youtube.com/@dineshTechfi" className='text-white w-12'>
