@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { TodoContextProvider, useTodo } from "./context/TodoContext"
 import AddTodo from "./components/AddTodo";
 import TodoCard from "./components/TodoCard";
+import Footer from "./components/Footer";
 
 function App() {
 
@@ -45,11 +46,10 @@ function App() {
   
   return (
     <TodoContextProvider value={{ todos, updateTodo, addTodo, deleteTodo, toggleComplete }}>
-      <div className="bg-[#0d032c] h-screen flex flex-col justify-start items-center ">
-      <h1 className="p-2 my-4 text-[48px] font-extrabold text-blue-900 text-center">Todo app</h1>
+      <div className="bg-[#0d032c] h-full min-h-screen flex flex-col justify-start overflow-x-hidden mx-auto ">
+      <h1 className="p-2 my-4 text-[48px] font-extrabold text-blue-900 text-center">Todo App</h1>
       <AddTodo />
-      {/* {todos.length > 0 && (<p className="text-start text-blue-900">Todos</p>)} */}
-      <div className="flex my-4 max-w-[1080px] flex-row flex-wrap gap-8 justify-center items-center">
+      <div className="flex my-4 max-w-[1080px] flex-row flex-wrap gap-8 justify-center mx-auto items-center">
           {todos.map((todo)=> {
             return(
               <TodoCard key={todo.id}  todo={todo} />   
@@ -57,6 +57,7 @@ function App() {
           })}  
       </div>
       </div>
+      <Footer />  
     </TodoContextProvider>
   )
 }
