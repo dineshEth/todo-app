@@ -21,7 +21,7 @@ const TodoCard = ({todo}) => {
       toggleComplete(id)
     }
   return (
-    <div className={`w-[280px] py-2 px-4 rounded-md gap-y-2 flex flex-col justify-center items-center ${isCompleted ? 'bg-[#04537e]' : 'bg-[#1196f4]'} `} >
+    <div className={`w-full max-w-[280px] py-2 px-4 rounded-md gap-y-2 flex flex-col justify-center items-center ${isCompleted ? 'bg-[#04537e]' : 'bg-[#1196f4]'} `} >
     <input className={`${isCompleted ? 'line-through' : ''} w-full text-wrap ${editable ? ' border-[2px]' :'outline-none'} } text-[#100723] text-center font-bold text-[24px] bg-transparent `} value={text} onChange={(e) => setText(e.target.value)} readOnly={!editable} />
     <p className='text-white'>{Date(id)}</p>
         <div className='flex flex-row justify-center items-center gap-x-2' >

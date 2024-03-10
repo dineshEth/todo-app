@@ -49,7 +49,7 @@ function App() {
       <div className="bg-[#0d032c] h-full min-h-screen flex flex-col justify-start overflow-x-hidden mx-auto ">
       <h1 className="p-2 my-4 text-[48px] font-extrabold text-blue-900 text-center">Todo App</h1>
       <AddTodo />
-      <div className="flex my-4 max-w-[1080px] flex-row flex-wrap gap-8 justify-center mx-auto items-center">
+      <div className="flex px-2 my-4 max-w-[1080px] flex-row flex-wrap gap-8 justify-center mx-auto items-center">
           {todos.map((todo)=> {
             return(
               <TodoCard key={todo.id}  todo={todo} />   
